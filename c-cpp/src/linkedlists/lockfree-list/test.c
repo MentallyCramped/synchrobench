@@ -38,6 +38,11 @@ void barrier_init(barrier_t *b, int n)
 	b->crossing = 0;
 }
 
+/*
+ * A very straightforward implementation of a barrier. Uses a lock to get entry into the barrier,
+ * increments the number of threads waiting at the barrier and if every one hasn't reached it will
+ * wait on the barrier condition else it'll signal every other thread to wake up.
+ */
 void barrier_cross(barrier_t *b)
 {
 	pthread_mutex_lock(&b->mutex);
