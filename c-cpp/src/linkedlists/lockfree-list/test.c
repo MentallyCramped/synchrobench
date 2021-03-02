@@ -81,9 +81,12 @@ inline long rand_range(long r) {
 	} while (r > 0);
 	return v;
 }
-long rand_range(long r);
+long rand_range(long r);	//Why does this need to be here?
 
-/* Thread-safe, re-entrant version of rand_range(r) */
+/* Thread-safe, re-entrant version of rand_range(r)
+ * The usage of rand_r without passing a global seed as an argument makes this
+ * implementation thread-safe as rand_r only modifies the arguments given to it.
+ */
 inline long rand_range_re(unsigned int *seed, long r) {
 	int m = 2147483647;
 	long d, v = 0;
