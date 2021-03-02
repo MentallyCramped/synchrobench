@@ -46,7 +46,7 @@ static volatile AO_t stop;
 
 #define TRANSACTIONAL                   d->unit_tx
 
-typedef intptr_t val_t;
+typedef intptr_t val_t;		//intptr_t is just an easy way to cast pointers as integers regardless of the platform you're in.
 #define VAL_MIN                         INT_MIN
 #define VAL_MAX                         INT_MAX
 
